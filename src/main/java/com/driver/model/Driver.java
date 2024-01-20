@@ -37,6 +37,10 @@ public class Driver {
         this.password = password;
     }
 
+    public int getDriverId() {
+        return driverId;
+    }
+
     public String getMobile() {
         return mobile;
     }
@@ -67,5 +71,9 @@ public class Driver {
 
     public void setTripBookingList(List<TripBooking> tripBookingList) {
         this.tripBookingList = tripBookingList;
+    }
+
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
     }
 }
