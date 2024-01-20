@@ -42,6 +42,7 @@ public class AdminServiceImpl implements AdminService {
 		if (!optionalAdmin.isEmpty()) {
 			updatedAdmin = optionalAdmin.get();
 			updatedAdmin.setPassword(password);
+			updatedAdmin = adminRepository1.save(updatedAdmin);
 		}
 		return updatedAdmin;
 	}
@@ -62,7 +63,6 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<Customer> getListOfCustomers() {
 		//Find the list of all customers
-
         return customerRepository1.findAll();
 	}
 

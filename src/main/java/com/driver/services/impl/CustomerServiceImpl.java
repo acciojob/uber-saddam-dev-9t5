@@ -83,7 +83,10 @@ public class CustomerServiceImpl implements CustomerService {
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
 		Optional<TripBooking> optionalTripBooking = tripBookingRepository2.findById(tripId);
         if(!optionalTripBooking.isEmpty()) {
-			optionalTripBooking.get().setStatus(TripStatus.CANCELED);
+			TripBooking tripBooking = new TripBooking();
+			tripBooking = optionalTripBooking.get();
+			tripBooking.setStatus(TripStatus.CANCELED);
+			tripBookingRepository2.save(tripBooking);
 		}
 		return;
 	}
@@ -93,7 +96,10 @@ public class CustomerServiceImpl implements CustomerService {
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 		Optional<TripBooking> optionalTripBooking = tripBookingRepository2.findById(tripId);
         if(!optionalTripBooking.isEmpty()) {
-			optionalTripBooking.get().setStatus(TripStatus.COMPLETED);
+			TripBooking tripBooking = new TripBooking();
+			tripBooking = optionalTripBooking.get();
+			tripBooking.setStatus(TripStatus.COMPLETED);
+			tripBookingRepository2.save(tripBooking);
 		}
 		return;
 	}
